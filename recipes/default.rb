@@ -38,3 +38,12 @@ platform_options["sosreport_packages"].each do |pkg|
     options platform_options["package_overrides"]
   end
 end
+
+case node["platform"]
+  when "redhat"
+    cookbook_file "/usr/lib/python2.6/site-packages/sos/plugins/openstack.py" do
+      source "openstack.py"
+      mode "0644"
+      action :create
+    end
+end
