@@ -17,20 +17,6 @@
 # limitations under the License.
 #
 
-case node["platform"]
-  when "ubuntu", "debian"
-    include_recipe "apt"
-
-    apt_repository "osops" do
-      uri "http://ppa.launchpad.net/osops-packaging/ppa/ubuntu"
-      distribution node["lsb"]["codename"]
-      components ["main"]
-      keyserver "keyserver.ubuntu.com"
-      key "53E8EA35"
-      notifies :run, resources(:execute => "apt-get update"), :immediately
-    end
-end
-
 platform_options = node["sosreport"]["platform"]
 platform_options["sosreport_packages"].each do |pkg|
   package pkg do
