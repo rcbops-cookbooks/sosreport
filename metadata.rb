@@ -4,7 +4,7 @@ description       "Installs the sos package"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version           "1.0.19"
 
-%w{ ubuntu }.each do |os|
+%w{ centos ubuntu }.each do |os|
   supports os
 end
 
