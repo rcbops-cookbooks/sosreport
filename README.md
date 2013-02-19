@@ -34,14 +34,14 @@ The default recipe installs the sos package, and drops in openstack.py (which ut
 License and Author
 ==================
 
-Author:: Justin Shepherd (<justin.shepherd@rackspace.com>) 
-Author:: Jason Cannavale (<jason.cannavale@rackspace.com>) 
-Author:: Ron Pedde (<ron.pedde@rackspace.com>) 
-Author:: Joseph Breu (<joseph.breu@rackspace.com>) 
-Author:: William Kelly (<william.kelly@rackspace.com>) 
-Author:: Darren Birkett (<darren.birkett@rackspace.co.uk>) 
-Author:: Evan Callicoat (<evan.callicoat@rackspace.com>) 
-Author:: Matt Thompson (<matt.thompson@rackspace.co.uk>) 
+Author:: Justin Shepherd (<justin.shepherd@rackspace.com>)  
+Author:: Jason Cannavale (<jason.cannavale@rackspace.com>)  
+Author:: Ron Pedde (<ron.pedde@rackspace.com>)  
+Author:: Joseph Breu (<joseph.breu@rackspace.com>)  
+Author:: William Kelly (<william.kelly@rackspace.com>)  
+Author:: Darren Birkett (<darren.birkett@rackspace.co.uk>)  
+Author:: Evan Callicoat (<evan.callicoat@rackspace.com>)  
+Author:: Matt Thompson (<matt.thompson@rackspace.co.uk>)  
 
 Copyright 2012, Rackspace US, Inc.
 
