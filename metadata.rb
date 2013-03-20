@@ -2,7 +2,7 @@ maintainer        "Rackspace Hosting, Inc."
 license           "Apache 2.0"
 description       "Installs the sos package"
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version           "1.0.20"
+version           "1.0.21"
 
 %w{ centos ubuntu }.each do |os|
   supports os
