@@ -25,18 +25,28 @@ https://launchpad.net/~osops-packaging/+archive/ppa
 Requirements
 ============
 
-Platforms
---------
+Chef 11.0 or higher required (for Chef environment use).
 
-* CentOS >= 6.3
-* Ubuntu >= 12.04
+Platforms
+---------
+
+This cookbook is actively tested on the following platforms/versions:
+
+* Ubuntu-12.04
+* CentOS-6.3
+
+While not actively tested, this cookbook should also work the following platforms:
+
+* Debian/Mint derivitives
+* Amazon/Oracle/Scientific/RHEL
 
 Cookbooks
 ---------
 
 The following cookbooks are dependencies:
 
-* apt (https://github.com/opscode-cookbooks/apt)
+* apt
+* osops-utils
 
 Recipes
 =======
@@ -57,6 +67,7 @@ Author:: William Kelly (<william.kelly@rackspace.com>)
 Author:: Darren Birkett (<darren.birkett@rackspace.co.uk>)  
 Author:: Evan Callicoat (<evan.callicoat@rackspace.com>)  
 Author:: Matt Thompson (<matt.thompson@rackspace.co.uk>)  
+Author:: Chris Laco (<chris.laco@rackspace.com>)
 
 Copyright 2012, Rackspace US, Inc.
 

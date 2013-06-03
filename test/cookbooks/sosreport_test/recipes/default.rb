@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: sosreport
-# Attributes:: default
+# Cookbook Name:: sosreport_test
+# Recipe:: default
 #
 # Copyright 2012, Rackspace US, Inc.
 #
@@ -17,16 +17,4 @@
 # limitations under the License.
 #
 
-if platform_family?("debian")
-  default["sosreport"]["platform"] = {        # node_attribute
-    "sosreport_packages" => ["sos"],
-    "package_overrides" =>
-      "-o Dpkg::Options::='--force-confold'" +
-      " -o Dpkg::Options::='--force-confdef'"
-  }
-elsif platform_family?("rhel")
-  default["sosreport"]["platform"] = {        # node_attribute
-    "sosreport_packages" => ["sos"],
-    "package_overrides" => ""
-  }
-end
+include_recipe "sosreport::default"

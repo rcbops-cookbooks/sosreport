@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: sosreport
-# Attributes:: default
+# Cookbook Name:: sosreport_test
+# Recipe:: default
 #
 # Copyright 2012, Rackspace US, Inc.
 #
@@ -17,16 +17,25 @@
 # limitations under the License.
 #
 
-if platform_family?("debian")
-  default["sosreport"]["platform"] = {        # node_attribute
-    "sosreport_packages" => ["sos"],
-    "package_overrides" =>
-      "-o Dpkg::Options::='--force-confold'" +
-      " -o Dpkg::Options::='--force-confdef'"
-  }
-elsif platform_family?("rhel")
-  default["sosreport"]["platform"] = {        # node_attribute
-    "sosreport_packages" => ["sos"],
-    "package_overrides" => ""
-  }
+require_relative "./support/helpers"
+
+describe_recipe "sosreport_test::default" do
+  include SosReportTestHelpers
+
+  it "installs the sos package" do
+    node["sosreport"]["platform"]["sosreport_packages"].each do |pkg|
+      package(pkg).must_be_installed
+    end
+  end
+
+  it "create an init config default file on redhat platform" do
+    script = file("/usr/lib/python2.6/site-packages/sos/plugins/openstack.py")
+
+    if node.platform?("redhat")
+      script.must_exist
+    else
+      script.wont_exist
+    end
+
+  end
 end

@@ -17,6 +17,11 @@
 # limitations under the License.
 #
 
+# RedHat has their own package
+if platform_family?("debian")
+  include_recipe "osops-utils::packages"
+end
+
 platform_options = node["sosreport"]["platform"]
 platform_options["sosreport_packages"].each do |pkg|
   package pkg do
@@ -25,11 +30,9 @@ platform_options["sosreport_packages"].each do |pkg|
   end
 end
 
-case node["platform"]
-  when "redhat"
-    cookbook_file "/usr/lib/python2.6/site-packages/sos/plugins/openstack.py" do
-      source "openstack.py"
-      mode "0644"
-      action :create
-    end
+cookbook_file "/usr/lib/python2.6/site-packages/sos/plugins/openstack.py" do
+  source "openstack.py"
+  mode "0644"
+  action :create
+  only_if { platform?("redhat") }
 end

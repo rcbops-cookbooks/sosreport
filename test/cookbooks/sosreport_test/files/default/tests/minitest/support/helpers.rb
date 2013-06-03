@@ -1,6 +1,6 @@
 #
-# Cookbook Name:: sosreport
-# Attributes:: default
+# Cookbook Name:: sosreport_test
+# Recipe:: default
 #
 # Copyright 2012, Rackspace US, Inc.
 #
@@ -17,16 +17,11 @@
 # limitations under the License.
 #
 
-if platform_family?("debian")
-  default["sosreport"]["platform"] = {        # node_attribute
-    "sosreport_packages" => ["sos"],
-    "package_overrides" =>
-      "-o Dpkg::Options::='--force-confold'" +
-      " -o Dpkg::Options::='--force-confdef'"
-  }
-elsif platform_family?("rhel")
-  default["sosreport"]["platform"] = {        # node_attribute
-    "sosreport_packages" => ["sos"],
-    "package_overrides" => ""
-  }
+require "chef/mixin/shell_out"
+module SosReportTestHelpers
+  include Chef::Mixin::ShellOut
+
+  include MiniTest::Chef::Assertions
+  include MiniTest::Chef::Context
+  include MiniTest::Chef::Resources
 end
