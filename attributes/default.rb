@@ -17,15 +17,14 @@
 # limitations under the License.
 #
 
-case node["platform_family"]
-when "debian"
+if platform_family?("debian")
   default["sosreport"]["platform"] = {        # node_attribute
     "sosreport_packages" => ["sos"],
     "package_overrides" =>
       "-o Dpkg::Options::='--force-confold'" +
       " -o Dpkg::Options::='--force-confdef'"
   }
-when "rhel"
+elsif platform_family?("rhel")
   default["sosreport"]["platform"] = {        # node_attribute
     "sosreport_packages" => ["sos"],
     "package_overrides" => ""

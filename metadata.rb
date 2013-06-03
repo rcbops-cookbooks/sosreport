@@ -10,7 +10,7 @@ version           "1.0.21"
   supports os
 end
 
-%w{ apt osops-utils }.each do |dep|
+%w{ osops-utils }.each do |dep|
   depends dep
 end
 

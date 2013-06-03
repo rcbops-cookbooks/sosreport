@@ -17,7 +17,10 @@
 # limitations under the License.
 #
 
-include_recipe "osops-utils::packages"
+# RedHat has their own package
+if platform_family?("debian")
+  include_recipe "osops-utils::packages"
+end
 
 platform_options = node["sosreport"]["platform"]
 platform_options["sosreport_packages"].each do |pkg|
