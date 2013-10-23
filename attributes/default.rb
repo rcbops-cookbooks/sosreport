@@ -20,13 +20,13 @@
 if platform_family?("debian")
   default["sosreport"]["platform"] = {        # node_attribute
     "sosreport_packages" => ["sos"],
-    "package_overrides" =>
+    "package_options" =>
       "-o Dpkg::Options::='--force-confold'" +
       " -o Dpkg::Options::='--force-confdef'"
   }
 elsif platform_family?("rhel")
   default["sosreport"]["platform"] = {        # node_attribute
     "sosreport_packages" => ["sos"],
-    "package_overrides" => ""
+    "package_options" => ""
   }
 end
